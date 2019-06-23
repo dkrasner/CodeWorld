@@ -9,7 +9,7 @@ Class {
 
 { #category : #accessing }
 TestClass >> whoAmI [
-	^ 'you know'
+	^ 'you know this works'
 ]
 
 { #category : #accessing }
