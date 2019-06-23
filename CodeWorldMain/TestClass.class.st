@@ -13,6 +13,6 @@ TestClass >> whoAmI [
 ]
 
 { #category : #accessing }
-TestClass >> whoAmI: anObject [
-	whoAmI := anObject
+TestClass >> whoAmI: aString [
+	^ aString
 ]
