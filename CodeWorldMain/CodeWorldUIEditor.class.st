@@ -8,6 +8,5 @@ Class {
 CodeWorldUIEditor >> renderContentOn: html [
 	"I render the content for the main code editor"
 
-	html div 
-		with: [html text: 'i am going to be an editor'].
+	html text: 'i am a code editor or more'.
 ]
