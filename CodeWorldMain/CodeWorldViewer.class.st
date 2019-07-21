@@ -8,5 +8,8 @@ Class {
 CodeWorldViewer >> renderContentOn: html [
 	"cI render the view html."
 
-	html text: 'i am a viewer'.
+	html div 
+		class: 'myclass';
+		with: 
+			[html text:'i am a viewer'].
 ]

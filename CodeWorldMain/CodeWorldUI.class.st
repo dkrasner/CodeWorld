@@ -45,7 +45,6 @@ CodeWorldUI >> renderContentOn: html [
 	"I am the landing page html code."
 	html div 
 		class: '';
-		style: 'color: blue';
 		with: [
 			html div 
 				with: self editorComponent.
@@ -60,6 +59,8 @@ CodeWorldUI >> updateRoot: anHtmlRoot [
 
 	super updateRoot: anHtmlRoot.
 	anHtmlRoot title: CodeWorldUI applicationName.
+	anHtmlRoot stylesheet
+		url: CodeWorldLibrary / #mainCss.
 ]
 
 { #category : #accessing }
