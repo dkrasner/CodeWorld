@@ -9,7 +9,10 @@ CodeWorldViewer >> renderContentOn: html [
 	"cI render the view html."
 
 	html div 
-		class: 'myclass';
+		class: 'viewer bg-light border border-secondary';
 		with: 
-			[html text:'i am a viewer'].
+			[
+			html text: 'i am view 1'.
+			html text: ' '.
+			html text: 'i am view 2'].
 ]
