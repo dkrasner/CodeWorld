@@ -8,7 +8,7 @@ Class {
 	#category : #CodeWorldMain
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'accessing values' }
 CodeWorldUI class >> applicationName [
 	"I am the name of the aplication"
 	^ 'CodeWorld'
