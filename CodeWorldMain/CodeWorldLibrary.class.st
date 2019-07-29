@@ -2,7 +2,8 @@ Class {
 	#name : #CodeWorldLibrary,
 	#superclass : #WAFileLibrary,
 	#instVars : [
-		'mainCss'
+		'mainCss',
+		'mainJs'
 	],
 	#category : #CodeWorldMain
 }
@@ -27,11 +28,48 @@ body {
 	align-items: center;
 }
 
+.editor { 
+	display: flex;
+	width: 50%;
+	padding: 3px;
+	border-right: solid 2px;
+	
+ }
+
+.editor input { 
+	height: 90%;
+	width: 100%;
+	
+ }
+
+
+.editor .header {
+	height: 10%;
+	color: red;
+	border-bottom: solid 1px;
+ }
+
 .viewer { 
 	height: 80%;
-	width: 80%
+	width: 80%;
+	display: flex;
 }
 '
+]
+
+{ #category : #accessing }
+CodeWorldLibrary >> mainJs [
+	^ '
+	$(document).ready(function() {
+		$("#summernote").summernote({
+		callbacks: {
+			onChange: function(contents, $editable) {
+				console.log(contents);
+				}
+				}
+			});
+	});
+	'
 ]
 
 { #category : #accessing }

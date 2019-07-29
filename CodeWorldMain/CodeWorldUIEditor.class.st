@@ -9,7 +9,11 @@ CodeWorldUIEditor >> renderContentOn: html [
 	"I render the content for the main code editor"
 
 	html div 
-		class: 'myclass';
-		with: [html textInput].
-	 
+		with: [
+			html div
+				class: 'header';
+				with: [html text: 'this will be the header'].				
+			html div
+				id: 'summernote'.
+			]
 ]

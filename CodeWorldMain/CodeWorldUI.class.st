@@ -2,7 +2,6 @@ Class {
 	#name : #CodeWorldUI,
 	#superclass : #WAComponent,
 	#instVars : [
-		'editorComponent',
 		'viewerComponent'
 	],
 	#category : #CodeWorldMain
@@ -21,22 +20,11 @@ CodeWorldUI class >> canBeRoot [
 	^ true
 ]
 
-{ #category : #accessing }
-CodeWorldUI >> editorComponent [
-	^ editorComponent.
-]
-
-{ #category : #accessing }
-CodeWorldUI >> editorComponent: anObject [
-	editorComponent := anObject
-]
-
 { #category : #initialization }
 CodeWorldUI >> initialize [
 	"I initialize everything, most important the super class WAComponent."
 
 	super initialize.
-	self editorComponent: CodeWorldUIEditor new.
 	self viewerComponent: CodeWorldViewer new.
 ]
 
@@ -63,14 +51,20 @@ CodeWorldUI >> updateRoot: anHtmlRoot [
 	anHtmlRoot link  
 		 beShortcutIcon;
 		 url: CodeWorldLibrary / #DistilIco.
+	anHtmlRoot javascript
+		url: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'.
+	anHtmlRoot javascript 
+		url: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'.
 	anHtmlRoot stylesheet
 		url: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'.
 	anHtmlRoot javascript
-		url: 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'.
-	anHtmlRoot javascript
 		 url: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'.
+	anHtmlRoot stylesheet  
+		url: 'http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css'.
 	anHtmlRoot javascript 
-		url: 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js'.
+		url: 'http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js'.
+	anHtmlRoot javascript
+		url: CodeWorldLibrary / #mainJs.
 ]
 
 { #category : #accessing }
