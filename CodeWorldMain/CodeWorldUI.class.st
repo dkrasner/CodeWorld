@@ -16,7 +16,6 @@ CodeWorldUI class >> applicationName [
 { #category : #testing }
 CodeWorldUI class >> canBeRoot [
 	"I let the server know that i am a root UI component."
-	
 	^ true
 ]
 
