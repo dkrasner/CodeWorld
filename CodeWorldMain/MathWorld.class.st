@@ -9,7 +9,7 @@ Class {
 
 { #category : #testing }
 MathWorld class >> canBeRoot [ 
-	"comment stating purpose of message"
+	"I can be a UI Seaside root component"
 	^ true.
 ]
 
@@ -17,15 +17,18 @@ MathWorld class >> canBeRoot [
 MathWorld >> initialize [
 	"I initialize everything, most important the super class WAComponent."
 	super initialize.
-	self viewerComponent: MathWorldViewer new.
 ]
 
 { #category : #rendering }
 MathWorld >> renderContentOn: html [
 	"I am the landing page html code."
 	html div 
-		class: 'h-100 w-100';
-		with: [html text: 'this will be the math world']
+		with: [html text: 'this is not much'].
+]
+
+{ #category : #rendering }
+MathWorld >> style [ 
+	^ 'font-size: 100px;'
 ]
 
 { #category : #updating }
