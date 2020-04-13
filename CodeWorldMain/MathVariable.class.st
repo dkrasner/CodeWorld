@@ -15,6 +15,7 @@ MathVariable >> getDescription [
 
 { #category : #getter }
 MathVariable >> getValue [
+	" this is main value"
 	^ value.
 ]
 
