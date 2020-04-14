@@ -8,6 +8,15 @@ Class {
 	#category : #CodeWorldMain
 }
 
+{ #category : #operators }
+MathVariable >> + anObject [
+	| newValue |
+	newValue := (anObject isMemberOf: self class)
+		ifTrue: [ value + anObject getValue ]
+		ifFalse: [ value + anObject ].
+	^ self class new setValue: newValue
+]
+
 { #category : #getter }
 MathVariable >> getDescription [
 	^ description.
