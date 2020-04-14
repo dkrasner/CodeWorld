@@ -1,3 +1,6 @@
+"
+A math variable class.
+"
 Class {
 	#name : #MathVariable,
 	#superclass : #Object,
