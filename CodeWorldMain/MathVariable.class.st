@@ -28,3 +28,8 @@ MathVariable >> setDescription: aString [
 MathVariable >> setValue: anObject [ 
 	value := anObject.
 ]
+
+{ #category : #getter }
+MathVariable >> symbol [
+	^ value asString.
+]
