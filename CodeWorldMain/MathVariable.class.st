@@ -15,6 +15,7 @@ MathVariable >> getDescription [
 
 { #category : #getter }
 MathVariable >> getValue [
+	" this is main value"
 	^ value.
 ]
 
@@ -26,4 +27,9 @@ MathVariable >> setDescription: aString [
 { #category : #setter }
 MathVariable >> setValue: anObject [ 
 	value := anObject.
+]
+
+{ #category : #getter }
+MathVariable >> symbol [
+	^ value asString.
 ]

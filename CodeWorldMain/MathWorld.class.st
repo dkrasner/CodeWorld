@@ -1,3 +1,6 @@
+"
+Add a comment!
+"
 Class {
 	#name : #MathWorld,
 	#superclass : #WAComponent,
