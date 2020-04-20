@@ -1,3 +1,6 @@
+"
+I am the main css for the MathWorld application.
+"
 Class {
 	#name : #CodeWorldLibrary,
 	#superclass : #WAFileLibrary,
@@ -75,11 +78,64 @@ CodeWorldLibrary >> mainJs [
 { #category : #webDependency }
 CodeWorldLibrary >> mathCss [
 	^ '
-body {
+html { height: 100%!important; }
+body { 
+	height: 100%!important;
+	padding-right: 10px;
+}
+.main {
 	color: red;
+	width: 100%;
+	height: 100%!important;
+	border: thick ridge black;
+	margin-right: 10px;
+}
+
+.base { 
+	border:  double lightblue;
+	position: absolute;
 }
 '
 	
+]
+
+{ #category : #'accessing-javascript' }
+CodeWorldLibrary >> mathJs [
+	^ '
+function dragstart_handler(ev) {
+	ev.dataTransfer.setData("text/plain", ev.target.id);
+	ev.dataTransfer.setData("text/plain", ev.target.innerText);
+ 	ev.dataTransfer.setData("text/html", ev.target.outerHTML);
+ 	ev.dataTransfer.setData("text/uri-list", ev.target.ownerDocument.location.href);
+}
+
+function dragend_handler(ev) {
+	const element = event.target;
+	element.style.top = element.style.top - element.target.clientX;
+	element.style.left = element.style.left - element.target.clientY;
+	console.log(ev);
+	console.log("dragend");
+}
+  window.addEventListener("DOMContentLoaded", () => {
+    // Get the element by id
+    const element = document.getElementById("baseComponent");
+    // Add the ondragstart event listener
+    element.addEventListener("mousedown", dragstart_handler);
+	element.addEventListener("mouseup", dragend_handler);
+
+  });
+
+function dragover_handler(ev) {
+ ev.preventDefault();
+ ev.dataTransfer.dropEffect = "move";
+}
+function drop_handler(ev) {
+	ev.preventDefault();
+	const data = ev.dataTransfer.getData("text/plain");
+	// ev.target.appendChild(document.getElementById(data));
+}
+
+'
 ]
 
 { #category : #accessing }
