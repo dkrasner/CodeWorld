@@ -5,7 +5,9 @@ Class {
 	#name : #MathWorldUI,
 	#superclass : #WAComponent,
 	#instVars : [
-		'mathWorld'
+		'mathCanvas',
+		'mathTextOne',
+		'mathTextTwo'
 	],
 	#category : #CodeWorldMain
 }
@@ -24,14 +26,18 @@ MathWorldUI class >> canBeRoot [
 { #category : #hooks }
 MathWorldUI >> children [
 	"I return all my children."
-	^ Array with: mathWorld.
+	^ Array with: nil.
 ]
 
 { #category : #initialization }
 MathWorldUI >> initialize [
 	"I initialize everything, most important the super class WAComponent."
 	super initialize.
-	mathWorld := MathWorldBaseComponent new.
+	mathTextOne := MathWorldBaseComponent initialize: 'this is text one'.
+	mathTextOne style: 'left: 15px'.
+	mathTextTwo := MathWorldBaseComponent initialize: 'this is text two'.
+	mathTextTwo style: 'right: 15px'.
+	mathCanvas := MathWorldBaseComponentCanvas new.
 ]
 
 { #category : #rendering }
@@ -40,9 +46,10 @@ MathWorldUI >> renderContentOn: html [
 	html div
 		class: 'main';
 		id: 'main';
-		attributeAt: 'ondragenter' put: 'return false';
-		attributeAt: 'ondragover' put: 'return false';
-		with: [ html render: mathWorld ]
+		with: [ 
+			html render: mathTextOne.
+			html render: mathTextTwo
+			]
 ]
 
 { #category : #updating }
